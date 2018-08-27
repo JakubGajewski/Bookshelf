@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean name="bookDaoImpl" class="pl.jg.model.BookDaoImpl" />
+<!-- 	<bean id="abstractDataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
+		p:driverClassName="${jdbc.driverClassName}"
+		p:username="${jdbc.username}" p:password="${jdbc.password}" /> -->
+	<bean name="myTestBean" class="pl.jg.model.MyTestBean" />
+</beans> 
