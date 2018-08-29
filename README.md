@@ -8,6 +8,7 @@ Technologies and tools:
     Stripes Framework
     Spring Framework
     JSP
+    JSTL
     JDBC
     MySQL Database
     Maven
