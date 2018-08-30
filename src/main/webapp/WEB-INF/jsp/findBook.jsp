@@ -4,7 +4,7 @@
 
 <html>
 <body style="text-align: center">
-	<h1>Add a new book</h1>
+	<h1>Find book</h1>
 	</br>
 	<s:form beanclass="pl.jg.action.AddBookActionBean">
 		<h3>

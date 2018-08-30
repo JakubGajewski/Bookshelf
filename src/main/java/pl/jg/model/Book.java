@@ -5,7 +5,7 @@ public class Book {
 	private int id;
 	private String author;
 	private String title;
-	private int publicationYear;
+	private Integer publicationYear;
 	
 	public int getId() {
 		return id;
@@ -25,31 +25,20 @@ public class Book {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getPublicationYear() {
+	public Integer getPublicationYear() {
 		return publicationYear;
 	}
-	public void setPublicationYear(int publicationYear) {
+	public void setPublicationYear(Integer publicationYear) {
 		this.publicationYear = publicationYear;
 	}
-	
-	public Book(int id, String author, String title, int year) {
-		this.id = id;
-		this.author = author;
-		this.title = title;
-		this.publicationYear = year;
-	}
-	
-	public Book() {
-	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((publicationYear == null) ? 0 : publicationYear.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		result = prime * result + publicationYear;
 		return result;
 	}
 	@Override
@@ -68,17 +57,22 @@ public class Book {
 			return false;
 		if (id != other.id)
 			return false;
+		if (publicationYear == null) {
+			if (other.publicationYear != null)
+				return false;
+		} else if (!publicationYear.equals(other.publicationYear))
+			return false;
 		if (title == null) {
 			if (other.title != null)
 				return false;
 		} else if (!title.equals(other.title))
 			return false;
-		if (publicationYear != other.publicationYear)
-			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "id=" + id + ", author=" + author + ", title=" + title + ", year=" + publicationYear;
+		return "Book [id=" + id + ", author=" + author + ", title=" + title + ", publicationYear=" + publicationYear
+				+ "]";
 	}
+	
 }

@@ -1,18 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>pl.jg</groupId>
-  <artifactId>bookshelf</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>bookshelf Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pl.jg</groupId>
+	<artifactId>bookshelf</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>bookshelf Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		   <maven.compiler.source>1.8</maven.compiler.source>
+		   <maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
 
 		<dependency>
-    		<groupId>net.sourceforge.stripes</groupId>
-		    <artifactId>stripes</artifactId>
-    		<version>1.5.8</version>
+			<groupId>net.sourceforge.stripes</groupId>
+			<artifactId>stripes</artifactId>
+			<version>1.5.8</version>
 		</dependency>
 
 		<dependency>
@@ -49,9 +56,12 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
+		
+	
 	</dependencies>
-  <build>
-    <finalName>bookshelf</finalName>
-  </build>
+
+
+	<build>
+		<finalName>bookshelf</finalName>
+	</build>
 </project>

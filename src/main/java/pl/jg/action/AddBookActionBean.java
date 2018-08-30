@@ -1,7 +1,5 @@
 package pl.jg.action;
 
-import net.sourceforge.stripes.action.ActionBean;
-import net.sourceforge.stripes.action.ActionBeanContext;
 import net.sourceforge.stripes.action.DefaultHandler;
 import net.sourceforge.stripes.action.ForwardResolution;
 import net.sourceforge.stripes.action.Resolution;
@@ -9,8 +7,8 @@ import net.sourceforge.stripes.integration.spring.SpringBean;
 import pl.jg.model.Book;
 import pl.jg.model.BookDaoImpl;
 
-public class AddBookActionBean implements ActionBean {
-	
+public class AddBookActionBean extends BaseActionBean {
+
 	private BookDaoImpl bookDaoImpl;
 	
 	private static final String VIEW = "/WEB-INF/jsp/addBook.jsp";
@@ -20,21 +18,12 @@ public class AddBookActionBean implements ActionBean {
 		this.bookDaoImpl = bookDaoImpl;
 	}
 	
-	private ActionBeanContext ctx;
-	
 	private String title = "";
 	private String author = "";
-	private int publicationYear;
+	private Integer publicationYear;
 	
 	String message;
 
-	public ActionBeanContext getContext() {
-		return ctx;
-	}
-
-	public void setContext(ActionBeanContext ctx) {
-		this.ctx = ctx;
-	}
 	
 	public String getTitle() {
 		return title;
@@ -52,11 +41,11 @@ public class AddBookActionBean implements ActionBean {
 		this.author = author;
 	}
 
-	public int getPublicationYear() {
+	public Integer getPublicationYear() {
 		return publicationYear;
 	}
 
-	public void setPublicationYear(int publicationYear) {
+	public void setPublicationYear(Integer publicationYear) {
 		this.publicationYear = publicationYear;
 	}
 	
@@ -70,6 +59,7 @@ public class AddBookActionBean implements ActionBean {
 
 	@DefaultHandler
 	public Resolution saveBook() {
+		
 		this.setMessage("");
 					
 		if (title.length()>0) {
@@ -77,7 +67,7 @@ public class AddBookActionBean implements ActionBean {
 			book.setTitle(title);
 			book.setAuthor(author);
 			book.setPublicationYear(publicationYear);
-			bookDaoImpl.saveBook(book);
+			bookDaoImpl.addBook(book);
 			this.setMessage ("The following book was added:\n" + book.toString());
 		}
 		

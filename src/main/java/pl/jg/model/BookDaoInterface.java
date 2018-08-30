@@ -5,8 +5,9 @@ import java.util.List;
 public interface BookDaoInterface {
 	
 	List <Book> getAllBooks();
-	Book getBookByTitle(String title);
-	void saveBook (Book book);
+	List <Book> getSpecificBooks(String[] searchCriteria);
+	void updateBook(Book book);
 	void deleteBook (Book book);
+	void addBook (Book book);
 	
 }
