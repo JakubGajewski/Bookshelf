@@ -16,6 +16,7 @@
 			<param-value>net.sourceforge.stripes.integration.spring.SpringInterceptor </param-value> 
 		</init-param> 
 	</filter>
+	
 	<servlet>
 		<servlet-name>DispatcherServlet</servlet-name>
 		<servlet-class>net.sourceforge.stripes.controller.DispatcherServlet</servlet-class>

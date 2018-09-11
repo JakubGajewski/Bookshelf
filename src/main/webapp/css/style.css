@@ -1,0 +1,23 @@
+body {
+	text-align: center;
+    background-color: lightblue;
+    color:navy;
+}
+
+h1 {
+    color: darkred;
+}
+
+p.zupa {
+    color: red;
+}
+
+table.zupa {
+	align: center;
+	color: darkgreen;
+}
+
+ table.center {
+    margin-left:auto; 
+    margin-right:auto;
+ }

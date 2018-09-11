@@ -6,8 +6,11 @@ public interface BookDaoInterface {
 	
 	List <Book> getAllBooks();
 	List <Book> getSpecificBooks(String[] searchCriteria);
-	void updateBook(Book book);
-	void deleteBook (Book book);
+	Book getById(int id);
+	Book getNext(int id);
+	Book getPrevious(int id);
+	void updateBook(String author, String title, Integer publicationYear, String description, int id);
+	void deleteBook (int id);
 	void addBook (Book book);
 	
 }

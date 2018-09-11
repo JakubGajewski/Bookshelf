@@ -1,6 +1,5 @@
 package pl.jg.action;
 
-import java.util.ArrayList;
 import java.util.List;
 import net.sourceforge.stripes.action.DefaultHandler;
 import net.sourceforge.stripes.action.ForwardResolution;
@@ -22,7 +21,7 @@ public class BookSearchActionBean extends BaseActionBean {
 	
 	private List <Book> allBooks;
 	
-	private List <Book> searchedBooks;
+	private List <Book> books;
 	
 	private String requestedAuthor;
 	
@@ -47,12 +46,12 @@ public class BookSearchActionBean extends BaseActionBean {
 		this.allBooks = allBooks;
 	}
 
-	public List<Book> getSearchedBooks() {
-		return searchedBooks;
+	public List<Book> getBooks() {
+		return books;
 	}
 
-	public void setSearchedBooks(List<Book> searchedBooks) {
-		this.searchedBooks = searchedBooks;
+	public void setBooks(List<Book> books) {
+		this.books = books;
 	}
 
 	public String getRequestedAuthor() {
@@ -91,7 +90,9 @@ public class BookSearchActionBean extends BaseActionBean {
 			searchCriteria [2] = String.valueOf(requestedPublicationYear);
 		}
 			
-		searchedBooks = bookDaoImpl.getSpecificBooks(searchCriteria);
+		if (searchCriteria[0] != null || searchCriteria[1] != null || searchCriteria[2] != null) {
+			books = bookDaoImpl.getSpecificBooks(searchCriteria);
+		}
 			
 		return new ForwardResolution(VIEW);
 	}

@@ -6,6 +6,7 @@ public class Book {
 	private String author;
 	private String title;
 	private Integer publicationYear;
+	private String description;
 	
 	public int getId() {
 		return id;
@@ -31,11 +32,18 @@ public class Book {
 	public void setPublicationYear(Integer publicationYear) {
 		this.publicationYear = publicationYear;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((publicationYear == null) ? 0 : publicationYear.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
@@ -55,6 +63,11 @@ public class Book {
 				return false;
 		} else if (!author.equals(other.author))
 			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
 		if (id != other.id)
 			return false;
 		if (publicationYear == null) {
@@ -72,7 +85,8 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", author=" + author + ", title=" + title + ", publicationYear=" + publicationYear
-				+ "]";
+				+ ", description=" + description + "]";
 	}
+	
 	
 }

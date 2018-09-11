@@ -8,7 +8,7 @@ import pl.jg.model.Book;
 import pl.jg.model.BookDaoImpl;
 
 public class AddBookActionBean extends BaseActionBean {
-
+	
 	private BookDaoImpl bookDaoImpl;
 	
 	private static final String VIEW = "/WEB-INF/jsp/addBook.jsp";
@@ -21,9 +21,9 @@ public class AddBookActionBean extends BaseActionBean {
 	private String title = "";
 	private String author = "";
 	private Integer publicationYear;
+	private String description = "";
 	
 	String message;
-
 	
 	public String getTitle() {
 		return title;
@@ -49,6 +49,14 @@ public class AddBookActionBean extends BaseActionBean {
 		this.publicationYear = publicationYear;
 	}
 	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public String getMessage() {
 		return message;
 	}
@@ -60,6 +68,8 @@ public class AddBookActionBean extends BaseActionBean {
 	@DefaultHandler
 	public Resolution saveBook() {
 		
+		
+		
 		this.setMessage("");
 					
 		if (title.length()>0) {
@@ -67,6 +77,7 @@ public class AddBookActionBean extends BaseActionBean {
 			book.setTitle(title);
 			book.setAuthor(author);
 			book.setPublicationYear(publicationYear);
+			book.setDescription(description);
 			bookDaoImpl.addBook(book);
 			this.setMessage ("The following book was added:\n" + book.toString());
 		}

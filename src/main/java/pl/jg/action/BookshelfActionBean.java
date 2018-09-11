@@ -18,10 +18,8 @@ public class BookshelfActionBean extends BaseActionBean {
 		this.bookDaoImpl = bookDaoImpl;
 	}
 		
-	private static final String VIEW = "/WEB-INF/jsp/index.jsp";
-	
 	private List <Book> books;
-			
+	
 	public List <Book> getBooks() {
 		return books;
 	}
@@ -33,6 +31,6 @@ public class BookshelfActionBean extends BaseActionBean {
 	@DefaultHandler
 	public Resolution books() {
 		this.setBooks(this.bookDaoImpl.getAllBooks());
-		return new ForwardResolution(VIEW);
+		return new ForwardResolution("/WEB-INF/jsp/index.jsp");
 	}
 }

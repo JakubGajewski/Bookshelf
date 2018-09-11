@@ -3,10 +3,10 @@ Web application to manage books on your bookshelf.
 
 Books are stored in MySQL Database, information about them are stored in three columns: author, title and publication_year. 
 
-User has acces to three modules: 
+User has access to three modules: 
 - list of books - to get all of the stored data;
 - add a new book;
-- book search - serch by any (or all) of the three parameters.
+- book search - search by any (or all) of the three parameters.
 
 Technologies and tools: Java, Stripes Framework, Spring Framework, JSP, JSTL, JDBC, MySQL Database, Maven, IDE Eclipse
   
