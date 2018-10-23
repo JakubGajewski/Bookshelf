@@ -3,7 +3,8 @@
 	title="List of books">
 	<s:layout-component name="body">
 		<%@include file="/WEB-INF/jsp/common/book_list.jsp"%>
-		
-	</s:layout-component>
+		<s:link beanclass="pl.jg.action.BookshelfActionBean"
+			event="generateXML" >Print a book list to the console :-)</s:link>	
+	</s:layout-component>	
 </s:layout-render>
 

@@ -68,8 +68,6 @@ public class AddBookActionBean extends BaseActionBean {
 	@DefaultHandler
 	public Resolution saveBook() {
 		
-		
-		
 		this.setMessage("");
 					
 		if (title.length()>0) {

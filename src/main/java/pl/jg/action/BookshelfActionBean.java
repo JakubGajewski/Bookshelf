@@ -8,6 +8,7 @@ import net.sourceforge.stripes.action.Resolution;
 import net.sourceforge.stripes.integration.spring.SpringBean;
 import pl.jg.model.Book;
 import pl.jg.model.BookDaoImpl;
+import pl.jg.model.XMLBookDataCreator;
 
 public class BookshelfActionBean extends BaseActionBean {
 	
@@ -33,4 +34,11 @@ public class BookshelfActionBean extends BaseActionBean {
 		this.setBooks(this.bookDaoImpl.getAllBooks());
 		return new ForwardResolution("/WEB-INF/jsp/index.jsp");
 	}
+	
+	//TODO: save the output to a file instead of logging to console!
+	public Resolution generateXML() {
+		XMLBookDataCreator xmlBookDataCreator = new XMLBookDataCreator();
+		xmlBookDataCreator.createXML(bookDaoImpl.getAllBooks());
+		return new ForwardResolution("/WEB-INF/jsp/index.jsp");
+	}	
 }

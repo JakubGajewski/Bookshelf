@@ -27,12 +27,12 @@
 			Delete book
 		</s:link>
 		</br>
-		
-		<s:link beanclass="pl.jg.action.UpdateBookActionBean">
+				
+<!-- 	<s:link beanclass="pl.jg.action.UpdateBookActionBean">
 			<s:param name="bookId" value="${actionBean.book.id}"/>
 			Update book
 		</s:link>
-		
+ -->		
 	</s:layout-component>
 </s:layout-render>
 

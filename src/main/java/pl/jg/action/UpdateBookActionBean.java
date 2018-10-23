@@ -7,12 +7,10 @@ import net.sourceforge.stripes.action.Resolution;
 import net.sourceforge.stripes.integration.spring.SpringBean;
 import pl.jg.model.Book;
 import pl.jg.model.BookDaoImpl;
-
+//TODO
 public class UpdateBookActionBean extends BaseActionBean {
 	
 	private BookDaoImpl bookDaoImpl;
-	
-
 	
 	@SpringBean("bookDaoImpl")
 	public void injectBookDaoImpl(BookDaoImpl bookDaoImpl) {
@@ -79,17 +77,17 @@ public class UpdateBookActionBean extends BaseActionBean {
 		this.description = description;
 	}
 
-	@DefaultHandler
-	public Resolution updateBook() {
-		
-		System.out.println(bookId);
-		this.setBook(bookDaoImpl.getById(bookId)); //is it necessary to query db every time?
-		System.out.println(this.book.toString());
-		
-		if (columnName != null && value != null) {
-			bookDaoImpl.updateBook(bookId, columnName, value);
-			return new RedirectResolution(DisplayBookActionBean.class).addParameter("bookId", bookId);
-		}
-		return new ForwardResolution("/WEB-INF/jsp/updateBook.jsp");
-	}
+//	@DefaultHandler
+//	public Resolution updateBook() {
+//		
+//		System.out.println(bookId);
+//		this.setBook(bookDaoImpl.getById(bookId)); //is it necessary to query db every time?
+//		System.out.println(this.book.toString());
+//		
+//		if (columnName != null && value != null) {
+//			bookDaoImpl.updateBook(bookId, columnName, value);
+//			return new RedirectResolution(DisplayBookActionBean.class).addParameter("bookId", bookId);
+//		}
+//		return new ForwardResolution("/WEB-INF/jsp/updateBook.jsp");
+//	}
 }
