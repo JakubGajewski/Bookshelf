@@ -4,7 +4,7 @@
 	<s:layout-component name="body">
 		<%@include file="/WEB-INF/jsp/common/book_list.jsp"%>
 		<s:link beanclass="pl.jg.action.BookshelfActionBean"
-			event="generateXML" >Print a book list to the console :-)</s:link>	
+			event="generateXML" >View books data as a raw XML text</s:link>	
 	</s:layout-component>	
 </s:layout-render>
 

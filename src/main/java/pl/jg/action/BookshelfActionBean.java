@@ -14,6 +14,16 @@ public class BookshelfActionBean extends BaseActionBean {
 	
 	private BookDaoImpl bookDaoImpl;
 	
+	private String xml;
+	
+	public void setXml (String xml) {
+		this.xml = xml;
+	}
+	
+	public String getXml () {
+		return this.xml;
+	}
+	
 	@SpringBean("bookDaoImpl")
 	public void injectBookDaoImpl(BookDaoImpl bookDaoImpl) {
 		this.bookDaoImpl = bookDaoImpl;
@@ -35,10 +45,12 @@ public class BookshelfActionBean extends BaseActionBean {
 		return new ForwardResolution("/WEB-INF/jsp/index.jsp");
 	}
 	
-	//TODO: save the output to a file instead of logging to console!
 	public Resolution generateXML() {
+		//TODO: encoding!
 		XMLBookDataCreator xmlBookDataCreator = new XMLBookDataCreator();
-		xmlBookDataCreator.createXML(bookDaoImpl.getAllBooks());
-		return new ForwardResolution("/WEB-INF/jsp/index.jsp");
+		String unescapedXml = xmlBookDataCreator.createXML(bookDaoImpl.getAllBooks());
+		String escapedXml = unescapedXml.replaceAll("<", "&lt").replaceAll(">", "&gt");
+		this.setXml(escapedXml);
+		return new ForwardResolution("/WEB-INF/jsp/xmlOutput.jsp");
 	}	
 }
